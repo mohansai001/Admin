@@ -1,8 +1,8 @@
 from fastapi import APIRouter #type: ignore
-from .routes.crud_ops import router as sql_router
-from .routes.log_manager import router as log_router
+from routes.crud_ops import router as sql_router
+from routes.log_manager import router as log_router
 # from .routes.agent_routes import router as agent_router
-from .routes.llm import router as llm_router
+from routes.llm import router as llm_router
 
 router = APIRouter()
 
