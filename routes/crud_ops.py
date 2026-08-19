@@ -1,10 +1,10 @@
 from fastapi import APIRouter #type: ignore
 from vida.database.database import db_dependency
-from vida.utils.crud_ops import get_all_triggered_records, AgentsOps as ao, WorkflowOps as wo
+from vida.utils.crud_ops import get_all_triggered_records, AgentsOps as ao, WorkflowOps as wo,AgentMetricsOps as amo
 from vida.models.requests.Agents_table_requests import AgentCreateRequest
 from vida.models.requests.workflow_table_requests import workflow_table_requests, workflow_details_table_requests
 
-router = APIRouter(prefix="/sql", tags=["SQL"])
+router = APIRouter()
 
 @router.get("/get_all_triggered_records")
 async def get_all_triggered(db: db_dependency):
@@ -29,3 +29,7 @@ async def push_workflow(db: db_dependency, workflow: workflow_table_requests):
 @router.post("/push_workflow_details")
 async def push_workflow_details(db: db_dependency, workflow_details: workflow_details_table_requests):
     return  wo().push_workflow_details_record(db, workflow_details)
+
+@router.get("/get_metrics")
+async def get_metrics(db: db_dependency):
+    return  amo().get_all_metrics(db=db)
