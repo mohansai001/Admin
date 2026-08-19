@@ -1,4 +1,4 @@
-name: Terraform-Agent CI-CD Pipeline   
+name: Admin CI-CD Pipeline   
 
 on:
  # push:
