@@ -1,4 +1,4 @@
-name: Admin CI-CD Pipeline   
+name: Admin CI-CD Pipeline for TSC
 
 on:
 
